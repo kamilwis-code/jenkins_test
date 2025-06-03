@@ -8,5 +8,13 @@ pipeline {
                 sh 'python3 main.py'
             }
         }
+
+        stage('Build Docker Image') {
+            steps {
+                sh '''
+                    docker build -t myapp ./demo_app
+                '''
+            }
+        }
     }
 }
